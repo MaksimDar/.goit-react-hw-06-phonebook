@@ -28,16 +28,14 @@ const App = () => {
   };
 
   const getVisibleContacts = normalizedFilter => {
-    return contacts.filter(contact =>
-      contact.name.toLocaleLowerCase().includes(normalizedFilter)
-    );
+    return contacts.filter(contact => contact.name.includes(normalizedFilter));
   };
 
   const onDeleteContact = contactId => {
     dispath(deleteContact(contactId));
   };
 
-  const normalizedFilter = filterValue.toLocaleLowerCase();
+  const normalizedFilter = filterValue;
   const visibleContats = getVisibleContacts(normalizedFilter);
 
   return (
